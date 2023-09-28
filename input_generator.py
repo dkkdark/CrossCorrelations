@@ -7,7 +7,7 @@ def generate():
                     'cucumber', 'pea', 'blackberry', 'grape', 'lemon', 'lime', 'melon', 'cream', 'kefir', 'yogurt', 'chocolate', 'cupcake', 'dessert', 'honey', 'jam', 'sugar', 'lemonade', 'muffin']
 
     lambda_param = 0.2
-    r = random.randint(2, 7)
+    r = random.randint(3, 15)
     zero = 0
     product_list_demo = []
     while zero < r:
