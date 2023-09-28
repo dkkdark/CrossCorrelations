@@ -1,19 +1,25 @@
 import random
-
+import numpy as np
 
 def generate():
-    product_list = ['cheese', 'tea', 'milk', 'coffee', 'bread', 'cake', 'oil', 'cabbage', 'onion', 'garlic', 'nuts',
-                    'meat', 'bananas', 'tomatoes', 'eggs', 'juice']
+    product_list = ['milk', 'bread','cheese', 'tea', 'pear', 'coffee', 'apple', 'cake', 'oil', 'cabbage', 'onion', 'garlic', 'nuts',
+                    'ham', 'bananas', 'tomatoes', 'eggs','juice', 'bacon', 'chicken', 'mutton', 'sausage', 'avocado',
+                    'cucumber', 'pea', 'blackberry', 'grape', 'lemon', 'lime', 'melon', 'cream', 'kefir', 'yogurt', 'chocolate', 'cupcake', 'dessert', 'honey', 'jam', 'sugar', 'lemonade', 'muffin']
 
+    lambda_param = 0.2
     r = random.randint(2, 7)
     zero = 0
-    str = ''
+    product_list_demo = []
     while zero < r:
-        random.shuffle(product_list)
-        random_element = product_list.pop()
+        random_value = np.random.exponential(scale=1 / lambda_param)
+        index = int(random_value) % len(product_list)
+        product_list_demo.append(product_list[index])
         zero += 1
-        str = str + ' ' + random_element
-    return str
+
+    unique_set = set(product_list_demo)
+    unique_list = list(unique_set)
+    result_str = ' '.join(unique_list)
+    return result_str
 
 
 def generate_input(num):
